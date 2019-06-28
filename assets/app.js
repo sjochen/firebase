@@ -36,3 +36,8 @@ $("#submit").on("click", function (event) {
         freq: freq,
       });
 });
+
+database.ref().on("child_added", function (childSnapShot){
+
+    $('tbody').append('<tr class="tabRow"><td class="name">' + childSnapShot.val().name + '<td class="destination">' + childSnapShot.val().destination + '<td class="first">' + childSnapShot.val().first + '<td class="freq">' + childSnapShot.val().freq);
+  });
